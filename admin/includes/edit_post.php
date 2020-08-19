@@ -1,3 +1,4 @@
+<?php include "includes/db.php" ?>
 <?php
   if(isset($_GET['p_id'])){
     $get_post_id= $_GET['p_id'];

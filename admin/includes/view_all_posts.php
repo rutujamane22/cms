@@ -1,4 +1,4 @@
-
+<?php include "includes/db.php" ?>
 <?php
     if(isset($_POST['checkboxArray'])){
 
