@@ -5,6 +5,7 @@
  <?php
    if(isset($_POST['submit'])){
     $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -26,8 +27,8 @@
     $salt = $row['randSalt'];
     $password = crypt($password,$salt);
 
-    $query = "INSERT INTO users(user_firstname, username , user_email , user_password, role) ";
-    $query .= "VALUES('$firstname', '$username' , '$email', '$password', 'subscriber' )";
+    $query = "INSERT INTO users(user_firstname,user_lastname, username , user_email , user_password, role) ";
+    $query .= "VALUES('$firstname','$lastname', '$username' , '$email', '$password', 'subscriber' )";
     $register_user_query = mysqli_query($connection , $query);
 
     if(!$register_user_query){
@@ -68,8 +69,13 @@
                     <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
                       <div class="form-group">
                          <label for="firstname" class="sr-only">FirstName</label>
-                         <input type="text" name="firstname" id="email" class="form-control" placeholder="Enter your Name">
+                         <input type="text" name="firstname" id="email" class="form-control" placeholder="Enter your FirstName">
                      </div>
+
+                     <div class="form-group">
+                        <label for="lastname" class="sr-only">Lastname</label>
+                        <input type="text" name="lastname" id="email" class="form-control" placeholder="Enter your LastName">
+                    </div>
 
                         <div class="form-group">
                             <label for="username" class="sr-only">username</label>
